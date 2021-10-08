@@ -7,5 +7,10 @@ function getText(){
     })
     .then(function(data) {
         console.log(data)
+        document.getElementById('output').innerHTML = data
+    })
+    .catch(function(error){
+        console.log(error)
+        document.getElementById('output').innerHTML = error
     })
 }
