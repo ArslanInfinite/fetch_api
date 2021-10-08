@@ -36,3 +36,25 @@ function getJson(){
         console.log(error)
     })
 }
+
+document.getElementById('button3').addEventListener('click', getExternal)
+
+// getting external API data
+function getExternal(){
+    fetch('https://api.github.com/users')
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data){
+        console.log(data)
+        let output = ''
+        data.forEach(function(user){
+            output += `<li>${user.login}</li>`
+        })
+        document.getElementById('output').innerHTML = output
+    })
+    .catch(function(error){
+        console.log(error)
+    })
+}
+
